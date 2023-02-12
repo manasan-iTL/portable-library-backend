@@ -2,8 +2,11 @@
   "name": "portable-library-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
+    "start": "nodemon dist/index.js",
+    "build": "npx tsc",
+    "build:watch": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
