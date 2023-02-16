@@ -5,7 +5,7 @@ const app = express()
 const PORT = 3000;
 
 app.get("/", (req: Request, res: Response) => {
-    res.send("Wlecome to WINC Library!")
+    res.send("Wlecome to Pocket Library!")
 })
 
 app.listen(PORT, () => {
