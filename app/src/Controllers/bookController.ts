@@ -9,4 +9,14 @@ router.get("/", async (req: Request, res: Response) => {
     const books = await prisma.book.findMany()
     res.json({ books })
 })
+
+router.post("/", async (req: Request, res: Response) => {
+    const { title, author, book_type  } = req.body
+
+    const book =  await prisma.book.create({
+        data: { title, author, book_type }
+    })
+
+    res.json({ book })
+})
 export default router
