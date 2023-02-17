@@ -15,6 +15,8 @@ datasource db {
    email String  @unique
    password String
    username String
+   rentaled_book Rentaled_Book[]
+ }
 
  model Book {
   id Int @id @default(autoincrement())
@@ -31,6 +33,19 @@ datasource db {
   book_id Int @unique
   created_at DateTime @default(now())
  }
+
+ model Rentaled_Book {
+  id Int @id @default(autoincrement())
+  book Book @relation(fields: [book_id], references: [id])
+  book_id Int @unique
+  user User @relation(fields: [user_id], references: [id])
+  user_id Int 
+  created_at DateTime @default(now())
+  return_at DateTime
+  limit Int
+  isProcess Boolean @default(false)
+ }
+
  enum Book_type {
   WINC
   EXTERNEL
