@@ -24,4 +24,8 @@ datasource db {
   rentable_book Rentable_Book?
   rentaled_book Rentaled_Book?
  }
+
+ enum Book_type {
+  WINC
+  EXTERNEL
  }
