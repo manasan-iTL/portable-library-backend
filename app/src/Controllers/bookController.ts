@@ -19,4 +19,14 @@ router.post("/", async (req: Request, res: Response) => {
 
     res.json({ book })
 })
+
+router.get("/rentable", async (req: Request, res: Response) => {
+    const rentableBooks = await prisma.rentable_Book.findMany({
+        include: {
+            book: true,
+        }
+    })
+
+    res.json({ rentableBooks })
+})
 export default router
