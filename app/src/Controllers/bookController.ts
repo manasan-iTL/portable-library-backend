@@ -29,4 +29,15 @@ router.get("/rentable", async (req: Request, res: Response) => {
 
     res.json({ rentableBooks })
 })
+
+router.get("/:book_id", async (req: Request, res: Response) => {
+    const bookId = req.params?.book_id
+
+    const book = await prisma.book.findUnique({
+        where: { id: parseInt(bookId) },
+    })
+
+    res.json({ book })
+})
+
 export default router
