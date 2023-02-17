@@ -25,6 +25,12 @@ datasource db {
   rentaled_book Rentaled_Book?
  }
 
+ model Rentable_Book {
+  id Int @id @default(autoincrement())
+  book Book @relation(fields: [book_id], references: [id])
+  book_id Int @unique
+  created_at DateTime @default(now())
+ }
  enum Book_type {
   WINC
   EXTERNEL
